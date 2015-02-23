@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>My Dic</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    </head>
+
+    <body>
+        <div data-role="page" id="pageone">
+            <div data-role="header">
+                <a href="add.html" class="ui-btn ui-btn-icon-right ui-icon-plus">Add</a>
+                <h1>My Dic by Felo</h1>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <form>
+                        <input id="filter-for-listview" data-type="search" placeholder="Escribe para buscar...">
+                </form>
+                <script src="js/index.js"></script>
+                <ul data-role="listview" data-inset="true" data-filter="true" data-input="#filter-for-listview" id="wordList">
+                    <!--                    <li><a href="#pagetwo" data-transition="slide">Acura</a></li>
+                                        <li><a href="#">Audi</a></li>
+                                        <li><a href="#">BMW</a></li>
+                                        <li><a href="#">Cadillac</a></li>
+                                        <li><a href="#">Ferrari</a></li>-->
+                </ul>
+            </div>
+
+
+
+            <!--            <div data-role="footer">
+                            <h1>By Felipe Erazo</h1>
+                        </div>-->
+        </div> 
+
+        <div data-role="page" id="pagetwo">
+            <div data-role="header">
+                <a href="#pageone" data-transition="slide" data-direction="reverse" class="ui-btn-left ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow ui-corner-all" data-role="button" role="button">arrow-l</a>
+                <h1>History</h1>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p id="history"></p>
+            </div>
+
+            <!--                <div data-role="footer">
+                                <h1>Footer Text</h1>
+                            </div>-->
+        </div> 
+
+    </body>
+</html>
