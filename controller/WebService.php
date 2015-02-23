@@ -14,9 +14,9 @@ if ($_POST["method"] === "getWords") {
     }
     mysql_free_result($sqlResult);
     echo json_encode($jsonResult);
-} else if ($_POST["method"] === "getHistory") {
+} else if ($_POST["method"] === "getHistory") {    
     $db = new Connection();
-    $sql = utf8_encode("SELECT history FROM terms WHERE id=" + $_POST["param"] + ";");
+    $sql = utf8_encode("SELECT word, history FROM terms WHERE id=" . $_POST["param"] . ";");
     $sqlResult = $db->execute($sql);
     $jsonResult[] = null;
     $i = 0;
@@ -25,7 +25,19 @@ if ($_POST["method"] === "getWords") {
         $i++;
     }
     mysql_free_result($sqlResult);
-    echo '1';
+    echo json_encode($jsonResult);
+//    echo json_encode("SELECT history FROM terms WHERE id=" . $_POST["param"] . ";");
+} else if ($_POST["method"] === "insertTerm") {    
+    $db = new Connection();
+    $sql = utf8_encode("INSERT INTO terms (word, history) VALUES (" . $_POST["param"] . ");");
+    $sqlResult = $db->execute($sql);
+    $jsonResult[] = null;
+    $i = 0;
+    while ($row = mysql_fetch_array($sqlResult)) {
+        $jsonResult[$i] = $row;
+        $i++;
+    }
+    mysql_free_result($sqlResult);
+    echo json_encode($jsonResult);
+//    echo json_encode("INSERT INTO terms (word, history) VALUES (" . $_POST["param"] . ");");
 }
-
-

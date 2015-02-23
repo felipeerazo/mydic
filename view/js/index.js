@@ -21,11 +21,10 @@ function callGetHistory(id) {
         method: "getHistory",
         param:id
     }, function (data) {
-//        printHistory(data);
-        console.log(data);
+        printHistory(data[0]["word"], data[0]["history"]);
     }, "json");
 }
 
-function printHistory(data) {
-    $("#history").html(data["history"]);
+function printHistory(word, history) {
+    $("#history").html("<dl><dt>"+word+"</dt><dd>"+history+"</dd></dl>");
 }
